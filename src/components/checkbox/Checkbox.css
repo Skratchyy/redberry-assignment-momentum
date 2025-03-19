@@ -1,0 +1,71 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --checkbox-main-color: #a34af5;
+  --label-font-color: #212529;
+}
+
+.checkbox_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 8px;
+  border: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.checkbox_input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--checkbox-main-color);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox_input:checked::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 6px;
+  width: 4px;
+  height: 10px;
+  border-right: 2px solid var(--checkbox-main-color);
+  border-bottom: 2px solid var(--checkbox-main-color);
+  transform: rotate(45deg);
+}
+
+.checkbox_label {
+  user-select: none;
+  font-size: 16px;
+  font-family: firaGo;
+  font-weight: 400;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--label-font-color);
+}
+
+.checkbox_image_cover {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+.checkbox_image {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
