@@ -1,0 +1,85 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --button-primary-color: #8338EC;
+  --button-primary-light-color: #B588F4;
+  --button-dark-font-color: #212529;
+  --button-bright-font-color: #FFFFFF;
+}
+
+.button_filter {
+  background-color: var(--button-primary-color);
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 0;
+  color: var(--button-bright-font-color);
+  font-family: 'firaGo';
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button_filter:hover {
+  background-color: var(--button-primary-light-color);
+}
+
+.button_primary {
+  background-color: var(--button-primary-color);
+  padding: 10px 20px;
+  gap: 4px;
+  border: 0;
+  border-radius: 5px;
+  font-family: firaGo;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--button-bright-font-color);
+  cursor: pointer;
+}
+
+.button_primary:hover {
+  background-color: var(--button-primary-light-color);
+}
+
+.button_primary > svg{
+  margin-right: 4px;
+}
+
+.button_reply {
+  background: none;
+  border: 0;
+  padding: 6px;
+  font-family: firaGo;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--button-primary-color);
+  cursor: pointer;
+}
+
+.button_reply:hover {
+  color: var(--button-primary-light-color);
+}
+
+.button_reply > svg {
+  rotate: 270deg;
+  margin-right: 4px;
+}
+
+.button_secondary {
+  background: none ;
+  padding: 10px 20px;
+  gap: 4px;
+  border: 1px solid var(--button-primary-color);
+  border-radius: 5px;
+  font-family: firaGo;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--button-dark-font-color);
+  cursor: pointer;
+}
+
+.button_secondary:hover {
+  border-color: var(--button-primary-light-color);
+}
