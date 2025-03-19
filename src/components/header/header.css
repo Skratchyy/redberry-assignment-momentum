@@ -1,0 +1,36 @@
+@font-face {
+  font-family: fredoka;
+  src: url('../../assets/Fredoka-Regular.ttf');
+}
+
+:root {
+  --header-logo-font-color: #8338EC;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  margin: 31px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: fredoka;
+  font-weight: 900;
+  color: var(--header-logo-font-color);
+}
+
+.header-logo > h1 {
+  margin: 0;
+}
+
+.header-action-buttons {
+  margin: 31px 0px;
+}
+
+.header-action-buttons > * {
+  margin: 0 20px;
+}
