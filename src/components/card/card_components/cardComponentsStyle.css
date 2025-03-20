@@ -1,0 +1,78 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --lower-priority-color: #08A508;
+  --medium-priority-color: #FFBE0B;
+  --high-priority-color: #FA4D4D;
+  --date-font-color: #212529;
+}
+
+
+.priority_tag_1 {
+  border-color: var(--lower-priority-color);
+  color: var(--lower-priority-color);
+  font-size: 12px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+  margin: 0 4px 0 0;
+  font-family: firaGo;
+}
+
+.priority_tag_2 {
+  border-color: var(--medium-priority-color);
+  color: var(--medium-priority-color);
+  font-size: 12px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+  font-family: firaGo;
+  margin: 0 4px 0 0;
+}
+
+.priority_tag_3 {
+  border-color: var(--high-priority-color);
+  color: var(--high-priority-color);
+  font-size: 12px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+  font-family: firaGo;
+  margin: 0 4px 0 0;
+}
+
+.fate_field {
+  font-family: firaGo;
+  font-size: 12px;
+  color: var(--date-font-color);
+  width: fit-content;
+  margin: 0;
+}
+
+.department_tag {
+  font-family: firaGo;
+  font-size: 12px;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 9px 18.5px;
+  color: #fff;
+  height: fit-content;
+}

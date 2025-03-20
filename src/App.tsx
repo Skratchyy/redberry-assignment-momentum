@@ -1,9 +1,7 @@
-
-import Filter from "./components/filter/Filter"
-import FilterTag from "./components/filter/filter_tag/FilterTag"
 import Header from "./components/header/Header"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { TaskList } from "./Test"
+
+
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -11,7 +9,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <><Filter /><FilterTag /><TaskList /></> // This will be done
+        element: 0 // This will be done
       },
       {
         path: '/new-assignment',

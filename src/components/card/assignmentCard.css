@@ -1,0 +1,66 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --font-header-color: #212529;
+  --font-color: #343A40;
+}
+
+.assignment_card {
+  width: 20%;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.assignment_card:hover {
+  border: 2px solid;
+}
+
+.assignment_card_first_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assignment_card_first_section > div{
+  display: flex;
+  align-items: center;
+}
+
+.assignment_card_second_section > h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-header-color);
+  margin: 25px 0 12px 0;
+}
+
+.assignment_card_second_section > p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--font-header-color);
+  margin-bottom: 25px;
+}
+
+.assignment_card_third_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assignment_card_third_section > img {
+  width: 31px;
+  border-radius: 50%;
+}
+
+.assignment_card_third_section > span {
+  display: flex;
+  align-items: center;
+}
+
+.assignment_card_third_section > span > img {
+  margin-right: 4px;
+}

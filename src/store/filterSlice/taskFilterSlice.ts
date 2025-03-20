@@ -2,10 +2,30 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TaskFilters } from '../../types/api.types';
 import { RootState } from '../store';
 
-const initialState: TaskFilters = {
-  department_id: undefined,
-  employee_id: undefined,
-  priority_id: undefined,
+const loadStateFromStorage = (): TaskFilters => {
+  try {
+    const savedState = localStorage.getItem('tasksFilter');
+    if (savedState) {
+      return JSON.parse(savedState);
+    }
+  } catch (err) {
+    console.error('Could not load state from localStorage:', err);
+  }
+  return {
+    department_id: undefined,
+    employee_id: undefined,
+    priority_id: undefined,
+  };
+};
+
+const initialState: TaskFilters = loadStateFromStorage();
+
+const saveStateToStorage = (state: TaskFilters) => {
+  try {
+    localStorage.setItem('tasksFilter', JSON.stringify(state));
+  } catch (err) {
+    console.error('Could not save state to localStorage:', err);
+  }
 };
 
 const tasksFilterSlice = createSlice({
@@ -19,6 +39,7 @@ const tasksFilterSlice = createSlice({
         state.department_id = action.payload;
         state.employee_id = undefined;
       }
+      saveStateToStorage(state);
     },
     setEmployeeFilter: (state, action: PayloadAction<number[] | undefined>) => {
       if (!action.payload || action.payload.length === 0) {
@@ -26,6 +47,7 @@ const tasksFilterSlice = createSlice({
       } else {
         state.employee_id = action.payload;
       }
+      saveStateToStorage(state);
     },
     setPriorityFilter: (state, action: PayloadAction<number[] | undefined>) => {
       if (!action.payload || action.payload.length === 0) {
@@ -33,8 +55,17 @@ const tasksFilterSlice = createSlice({
       } else {
         state.priority_id = action.payload;
       }
+      saveStateToStorage(state);
     },
-    resetFilters: () => initialState,
+    resetFilters: () => {
+      const resetState = {
+        department_id: undefined,
+        employee_id: undefined,
+        priority_id: undefined,
+      };
+      saveStateToStorage(resetState);
+      return resetState;
+    },
   },
 });
 
