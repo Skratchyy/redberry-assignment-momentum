@@ -1,0 +1,22 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+.task_section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 20%;
+}
+
+.task_section_header {
+  width: 100%;
+  background-color: red;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFF;
+  padding: 15px 0;
+  border-radius: 10px;
+  text-align: center;
+}

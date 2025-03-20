@@ -30,7 +30,7 @@ function AssignmentCard({task}: assignmentProps) {
       <p>{task.description.length > 100 ? `${task.description.slice(100)} ...` : task.description}</p>
     </section>
     <section className="assignment_card_third_section">
-      <img src={task.employee.avatar} alt="Employee avatar" />
+      <img src={task.employee.avatar} alt="" />
       <span><img src={commentSVG} alt="Comments"/>{data?.length}</span>
     </section>
   </div>;

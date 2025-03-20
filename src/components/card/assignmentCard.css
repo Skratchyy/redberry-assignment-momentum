@@ -9,7 +9,6 @@
 }
 
 .assignment_card {
-  width: 20%;
   border: 1px solid;
   border-radius: 15px;
   padding: 20px;
@@ -53,6 +52,7 @@
 
 .assignment_card_third_section > img {
   width: 31px;
+  height: 31px;
   border-radius: 50%;
 }
 

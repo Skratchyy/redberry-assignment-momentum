@@ -1,5 +1,6 @@
 import Header from "./components/header/Header"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import Home from "./views/Home"
 
 
 const routes = createBrowserRouter([
@@ -9,7 +10,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: 0 // This will be done
+        element: <Home />
       },
       {
         path: '/new-assignment',
