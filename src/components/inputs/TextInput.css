@@ -1,0 +1,56 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --label-font-color: #343A40;
+  --input-font-color: #212529;
+  --input-border-color: #CED4DA;
+  --idle-info-color: #6C757D;
+  --success-info-color: #08A508;
+  --fail-info-color: #FA4D4D;
+}
+
+.text_input_field {
+  border: 0;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.text_input_label {
+  font-family: firaGo;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--label-font-color);
+}
+
+.text_input {
+  min-width: 384px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 6px;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: var(--input-font-color);
+  margin: 6px 0px;
+}
+
+.text_input:focus {
+  outline: none;
+}
+
+.text_input_field > span {
+  color: var(--idle-info-color);
+  font-family: firaGo;
+  font-size: 10px;
+  font-weight: 350;
+}
+
+.text_input_field > span.success {
+  color: var(--success-info-color);
+}
+
+.text_input_field > span.fail {
+  color: var(--fail-info-color);
+}

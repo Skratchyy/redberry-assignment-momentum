@@ -1,6 +1,6 @@
+
 import Header from "./components/header/Header"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -21,6 +21,7 @@ const routes = createBrowserRouter([
     ]
   }
 ])
+
 function App() {
   return <RouterProvider router={routes} />
 }

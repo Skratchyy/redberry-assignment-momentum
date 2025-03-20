@@ -1,0 +1,68 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+
+:root {
+  --active-button-color: #8338EC;
+  --idle-button-color: #0D0F10;
+}
+
+.menu {
+  display: flex;
+
+}
+
+.filter_container {
+  list-style: none;
+  position: relative;
+}
+
+.filter_cta {
+  padding: 12.5px 18px;
+  border: 0;
+  color: var(--idle-button-color);
+  font-family: firaGo;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.filter_cta.active {
+  color: var(--active-button-color);
+}
+
+.filter_cta > svg {
+  margin-left: 8px;
+}
+
+.filterModal {
+  position: absolute;
+  left: 0;
+  margin-top: 11px;
+  padding: 40px 30px 20px 30px;
+  width: 668px;
+  border: 1px solid var(--active-button-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+  z-index: 2;
+}
+
+.filterModal > button {
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.filterModal-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+ }
