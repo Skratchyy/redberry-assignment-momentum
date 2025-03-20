@@ -9,9 +9,9 @@
   --idle-button-color: #0D0F10;
 }
 
-.menu {
+.filter_menu {
   display: flex;
-
+  padding: 0;
 }
 
 .filter_container {

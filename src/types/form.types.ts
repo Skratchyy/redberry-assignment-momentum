@@ -5,6 +5,7 @@ export interface CheckboxProps {
   label: string;
   image?: string;
   register: UseFormRegister<FieldValues>;
+  checked?: boolean;
 }
 
 export type FilterProps = {

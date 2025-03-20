@@ -4,7 +4,7 @@ import PriorityFilter from "./filter_components/PriorityFilter";
 import EmployeeFilter from "./filter_components/EmployeeFilter";
 import { FieldValues, FormProvider, useForm } from 'react-hook-form'
 import { useDispatch } from "react-redux";
-import { setDepartmentFilter } from "../../store/filterSlice/taskFilterSlice";
+import { setDepartmentFilter, setEmployeeFilter, setPriorityFilter } from "../../store/filterSlice/taskFilterSlice";
 
 function Filter() {
   const methods = useForm({ mode: "onSubmit" });
@@ -21,7 +21,7 @@ function Filter() {
     }
 
     if(formData.employee) {
-      dispatch(setDepartmentFilter(formData.employee.reduce((acc: number[], val: boolean, id: number) => {
+      dispatch(setEmployeeFilter(formData.employee.reduce((acc: number[], val: boolean, id: number) => {
         if (val === true) {
           acc.push(id);
         }
@@ -30,7 +30,7 @@ function Filter() {
     }
 
     if(formData.priority) {
-      dispatch(setDepartmentFilter(formData.priority.reduce((acc: number[], val: boolean, id: number) => {
+      dispatch(setPriorityFilter(formData.priority.reduce((acc: number[], val: boolean, id: number) => {
         if (val === true) {
           acc.push(id);
         }
@@ -42,7 +42,7 @@ function Filter() {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(handleSubmit)}>
-        <menu className="menu">
+        <menu className="filter_menu">
           <DepartmentFilter register={methods.register} />
           <PriorityFilter register={methods.register} />
           <EmployeeFilter register={methods.register} />

@@ -1,0 +1,45 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --filter-tag-border-color: #CED4DA;
+  --filter-tag-font-color: #343A40;
+}
+
+.filter_tag {
+  font-family: firaGo;
+  font-weight: 150;
+  font-size: 14px;
+  border-radius: 43px;
+  padding: 6px 10px;
+  border: 1px solid var(--filter-tag-border-color);
+  position: relative;
+  width: fit-content;
+  color: var(--filter-tag-font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 4px 0 0;
+  cursor: pointer;
+}
+
+.filter_tag > svg {
+  font-weight: 100;
+  margin-left: 4px;
+}
+
+.filter_tag_section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fiter_tag_reset {
+  cursor: pointer;
+  font-family: firaGo;
+  font-weight: 150;
+  font-size: 14px;
+  color: var(--filter-tag-font-color);
+}
