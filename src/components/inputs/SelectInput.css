@@ -1,0 +1,53 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+:root {
+  --select-label-font-color: #343A40;
+  --select-border-color: #CED4DA;
+  --select-input-color: #212529;
+}
+
+.select_input_field {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.select_input_label {
+  font-family: firaGo;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 4px 0;
+  color: var(--select-label-font-color);
+}
+
+.select_input {
+  max-width: 384px;
+  border: 1px solid var(--select-border-color);
+  border-radius: 6px;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: var(--select-input-color);
+  margin: 6px 0px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 98% !important;
+  background-position-y: 50% !important;
+  appearance: none !important;
+}
+
+.select_input:focus {
+  outline: none;
+}
+
+.new_user_modal_actions {
+  align-self: flex-end;
+  width: 30%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 10px;
+}

@@ -2,7 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TextInputProps } from "../../types/form.types";
 import './TextInput.css'
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-function TextInput({label, name, register, validationrules, ...props}: TextInputProps) {
+import { FieldValues } from "react-hook-form";
+
+
+function TextInput<TFieldValues extends FieldValues = FieldValues>({label, name, register, validationrules, ...props}: TextInputProps<TFieldValues>) {
 
   const isDirty = props.dirtyfields ? props.dirtyfields[name] : false;
   const hasError = props.errors && props.errors[name];

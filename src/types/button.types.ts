@@ -1,5 +1,7 @@
 export interface ButtonProps {
   title: string;
-  onClick?: () => void;
+  onClick?: ((e?: React.MouseEvent) => void) | (() => void);
   type?: "button" | "submit" | "reset";
+  icon?: boolean;
+  disabled?: boolean;
 }

@@ -1,11 +1,21 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
+import { Department } from "./api.types";
 
-export interface CheckboxProps {
-  name: string,
+export interface CheckboxProps<TFieldValues extends FieldValues = FieldValues> {
+  name: keyof TFieldValues & string,
   label: string;
   image?: string;
   register: UseFormRegister<FieldValues>;
   checked?: boolean;
+}
+
+export interface SelectInputProps<TFieldValues extends FieldValues = FieldValues> {
+  name: Path<TFieldValues>;
+  label: string;
+  register: UseFormRegister<TFieldValues>;
+  options?: Department[];
+  validationrules?: object;
+  required?: boolean
 }
 
 export type FilterProps = {
@@ -15,13 +25,20 @@ export type FilterProps = {
   name: string;
 }
 
-export interface TextInputProps {
-  name: string;
+export interface TextInputProps<TFieldValues extends FieldValues = FieldValues> {
+  name: Path<TFieldValues>;
   label: string;
   required?: boolean;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<TFieldValues>;
   validationrules?: object;
   errors?: Record<string, any>;
   dirtyfields?: Record<string, boolean>;
   errormessages?: string[];
+}
+
+export interface ImageInputProps<TFieldValues extends FieldValues = FieldValues> {
+  name: Path<TFieldValues>;
+  label: string;
+  required?: boolean
+  register: UseFormRegister<TFieldValues>;
 }

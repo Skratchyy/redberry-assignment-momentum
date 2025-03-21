@@ -17,8 +17,8 @@ function Home() {
       <Filter />
       <FilterTag />
       <div style={{ display: "flex",justifyContent: "space-between", marginTop: "40px" }}>
-        {statuses.map((status) => (
-          <HomeComponent status={status} tasks={tasks} />
+        {statuses.map((status, id) => (
+          <HomeComponent key={id} status={status} tasks={tasks} />
         ))}
       </div>
     </>

@@ -3,13 +3,16 @@ import logoImage from "/hourglass.png?url"
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { useNavigate, Outlet } from 'react-router-dom';
-
-/**
- * Still have some things to finish, so this is not completely done yet
- */
+import { useRef } from 'react';
+import NewUserModal from '../modal/NewEmployeeModal';
 
 function Header() {
   const navigate = useNavigate()
+  const dialog = useRef<HTMLDialogElement>(null)
+
+  const handleDialogOpen = () => {
+    dialog.current?.showModal();
+  }
   return (
     <>
     <header>
@@ -18,10 +21,11 @@ function Header() {
         <span><img src={logoImage} alt="Hour glass logo" /></span>
       </div>
       <div className="header-action-buttons">
-        <SecondaryButton title="თანამშრომლის შექმნა" onClick={() => {}} />
+        <SecondaryButton title="თანამშრომლის შექმნა" onClick={handleDialogOpen} />
         <PrimaryButton title="შექმენი ახალი დავალება" onClick={() => {navigate('/new-assignment')}} />
       </div>
     </header>
+    <NewUserModal ref={dialog}/>
     <Outlet />
     </>
   )

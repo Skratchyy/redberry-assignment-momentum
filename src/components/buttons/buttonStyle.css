@@ -43,6 +43,11 @@
   background-color: var(--button-primary-light-color);
 }
 
+.button_primary:disabled {
+  background-color: var(--button-primary-light-color);
+  cursor: not-allowed;
+}
+
 .button_primary > svg{
   margin-right: 4px;
 }

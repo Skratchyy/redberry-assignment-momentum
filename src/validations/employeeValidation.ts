@@ -11,3 +11,8 @@ export const nameValidation = {
     message: "მარტო ლათინური და ქართული სიმბოლოები"
   }
 }
+
+export const selectValidation = {
+    required: "დეპარტამენტი სავალდებულოა",
+    validate: (value: string | number | undefined) => value !== ""
+}
