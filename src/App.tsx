@@ -25,7 +25,9 @@ const routes = createBrowserRouter([
       },
     ],
   },
-]);
+],  {
+  basename: "/redberry-assignment-momentum"
+});
 
 function App() {
   return <RouterProvider router={routes} />;
