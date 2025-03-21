@@ -10,15 +10,15 @@ const routes = createBrowserRouter([
     element: <Header />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "/new-assignment",
+        path: "new-assignment", // <-- Relative path (no leading slash!)
         element: <NewAssignment />,
       },
       {
-        path: "/assignment/:id",
+        path: "assignment/:id",
         element: <Assignment />,
       },
     ],
