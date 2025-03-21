@@ -42,3 +42,8 @@
 .new_assignment_field-7 {
   grid-row: 4/5;
 }
+
+.submit {
+  grid-row: 5/6;
+  grid-column: 4/6;
+}

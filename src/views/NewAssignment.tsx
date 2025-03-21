@@ -6,8 +6,12 @@ import { useGetPrioritiesQuery } from "../services/api/priorityApi";
 import { useGetStatusesQuery } from "../services/api/statusApi";
 import "./NewAssignment.css";
 import CustomSelectInput from "../components/inputs/CutsomSelectInput";
-import { useEffect } from "react";
-import { nameValidation } from "../validations/employeeValidation";
+import { useEffect, useState } from "react";
+import { descriptionValidation, titleValidation } from "../validations/employeeValidation";
+import DateInput from "../components/inputs/DateInput";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import { useCreateTaskMutation } from "../services/api/taskApi";
+import { CreateTaskRequest } from "../types/api.types";
 
 function NewAssignment() {
   const { data: departments = [] } = useGetDepartmentsQuery();
@@ -15,7 +19,18 @@ function NewAssignment() {
   const { data: statuses = [] } = useGetStatusesQuery();
   const { data: priorities = [] } = useGetPrioritiesQuery();
 
-  const { register, control, handleSubmit, setValue, watch, formState: {errors, dirtyFields}} = useForm({mode: "onSubmit"});
+  const [createTask, { isLoading }] = useCreateTaskMutation();
+  const [submissionMessage, setSubmissionMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    setValue,
+    watch,
+    reset,
+    formState: { errors, dirtyFields },
+  } = useForm({ mode: "onSubmit" });
 
   useEffect(() => {
     const savedData = localStorage.getItem("assignmentFormData");
@@ -34,12 +49,56 @@ function NewAssignment() {
     return () => subscription.unsubscribe();
   }, [watch]);
 
+  const onSubmit = async (data: any) => {
+    try {
+      const taskRequest: CreateTaskRequest = {
+        name: data.name,
+        description: data.description,
+        due_date: data.dueDate,
+        status_id: data.status,
+        employee_id: data.employee,
+        priority_id: data.priorities
+      };
+      await createTask(taskRequest).unwrap();
+      setSubmissionMessage({
+        type: 'success',
+        text: 'დავალება წარმატებით შეიქმნა!'
+      });
+      reset();
+      localStorage.removeItem("assignmentFormData");
+      setTimeout(() => {
+        setSubmissionMessage(null);
+      }, 3000);
+    } catch (err) {
+      console.error('Failed to create task:', err);
+      setSubmissionMessage({
+        type: 'error',
+        text: 'დავალების შექმნა ვერ მოხერხდა. გთხოვთ, სცადოთ მოგვიანებით.'
+      });
+    }
+  };
+  useEffect(() => {
+    if (submissionMessage?.type === 'error') {
+      const subscription = watch(() => {
+        setSubmissionMessage(null);
+      });
+      return () => subscription.unsubscribe();
+    }
+  }, [submissionMessage, watch]);
+
   return (
     <section>
       <h1>დავალების შექმნა</h1>
+
+      {submissionMessage && (
+        <div className={`submission-message ${submissionMessage.type}`}>
+          {submissionMessage.text}
+        </div>
+      )}
+
       <form
         className="new_assignment_container"
-        onSubmit={handleSubmit((data) => console.log(data))}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <fieldset className="new_assignment_label new_assignment_field-1">
           <TextInput
@@ -48,7 +107,7 @@ function NewAssignment() {
             register={register}
             errors={errors}
             dirtyfields={dirtyFields}
-            validationrules={nameValidation}
+            validationrules={titleValidation}
             errormessages={["მინიმუმ 2 სიმბოლო", "მაქსუმუმ 255 სიმბოლო"]}
             required
           />
@@ -68,7 +127,7 @@ function NewAssignment() {
             name="description"
             errors={errors}
             dirtyfields={dirtyFields}
-            validationrules={nameValidation}
+            validationrules={descriptionValidation}
             register={register}
             errormessages={["მინიმუმ 2 სიმბოლო", "მაქსუმუმ 255 სიმბოლო"]}
             required
@@ -103,8 +162,20 @@ function NewAssignment() {
           />
         </fieldset>
         <fieldset className="new_assignment_label new_assignment_field-7">
+          <DateInput
+            name="dueDate"
+            label="თარიღი"
+            control={control}
+            required
+          />
         </fieldset>
-        <button>submit</button>
+        <div className="submit">
+          <PrimaryButton
+            title={isLoading ? "იტვირთება..." : "დამატება"}
+            type="submit"
+            disabled={isLoading}
+          />
+        </div>
       </form>
     </section>
   );

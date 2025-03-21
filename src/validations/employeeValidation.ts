@@ -7,8 +7,28 @@ export const nameValidation = {
     value: 255
   },
   pattern: {
-    value: /^[a-zA-Z\u10A0-\u10FF]+$/,
+    value: /^(?=.*\S)([a-zA-Z\u10A0-\u10FF\s]+)$/,
     message: "მარტო ლათინური და ქართული სიმბოლოები"
+  }
+}
+
+export const titleValidation = {
+  required: true,
+  minLength: {
+    value: 3
+  },
+  maxLength: {
+    value: 255
+  },
+}
+
+export const descriptionValidation = {
+  required: true,
+  minLength: {
+    value: 4
+  },
+  maxLength: {
+    value: 255
   }
 }
 

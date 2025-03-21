@@ -13,7 +13,7 @@ export interface SelectInputProps<TFieldValues extends FieldValues = FieldValues
   name: Path<TFieldValues>;
   label: string;
   register?: UseFormRegister<TFieldValues>;
-  control?: Control<FieldValues, any>;
+  control?: Control<TFieldValues, any>;
   options?: Department[] | Employee[] | Status[] | Priority[];
   validationrules?: object;
   required?: boolean;
@@ -33,7 +33,7 @@ export interface TextInputProps<TFieldValues extends FieldValues = FieldValues> 
   register: UseFormRegister<TFieldValues>;
   validationrules?: object;
   errors?: Record<string, any>;
-  dirtyfields?: Record<string, boolean>;
+  dirtyfields?: any;
   isTextarea?: boolean;
   errormessages?: string[];
 }
@@ -43,4 +43,19 @@ export interface ImageInputProps<TFieldValues extends FieldValues = FieldValues>
   label: string;
   required?: boolean
   register: UseFormRegister<TFieldValues>;
+}
+
+export interface DateInputProps {
+  name: string;
+  label?: string;
+  control: any;
+  required?: boolean;
+}
+
+export interface DateItem {
+  day: number;
+  month: number;
+  year: number;
+  isCurrentMonth: boolean;
+  isDisabled?: boolean;
 }
