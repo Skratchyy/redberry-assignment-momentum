@@ -4,9 +4,9 @@
 }
 
 :root {
-  --select-label-font-color: #343A40;
+  --select-label-font-color: #212529;;
   --select-border-color: #CED4DA;
-  --select-input-color: #212529;
+  --select-input-color: #343A40;;
 }
 
 .select_input_field {

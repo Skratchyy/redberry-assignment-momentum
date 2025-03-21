@@ -16,7 +16,7 @@ function Header() {
   return (
     <>
     <header>
-      <div className="header-logo">
+      <div className="header-logo" onClick={() => {navigate('/')}}>
         <h1>Momentum</h1>
         <span><img src={logoImage} alt="Hour glass logo" /></span>
       </div>

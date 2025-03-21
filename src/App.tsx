@@ -1,6 +1,7 @@
 import Header from "./components/header/Header"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "./views/Home"
+import NewAssignment from "./views/NewAssignment"
 
 
 const routes = createBrowserRouter([
@@ -14,7 +15,7 @@ const routes = createBrowserRouter([
       },
       {
         path: '/new-assignment',
-        element: 0
+        element: <NewAssignment />
       },
       {
         path: '/assignent/assignment-id',

@@ -34,6 +34,7 @@
   font-size: 14px;
   color: var(--input-font-color);
   margin: 6px 0px;
+  resize: none;
 }
 
 .text_input:focus {

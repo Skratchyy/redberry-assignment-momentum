@@ -1,0 +1,110 @@
+.select_input_field {
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+}
+
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+.select_input_label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-family: firaGo;
+}
+
+.custom_select_container {
+  position: relative;
+  width: 100%;
+}
+
+.custom_select_trigger {
+  max-width: 364px;
+  border: 1px solid var(--select-border-color);
+  border-radius: 6px;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: var(--select-input-color);
+  margin: 6px 0px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 98% !important;
+  background-position-y: 50% !important;
+  appearance: none !important;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom_select_trigger:hover {
+  border-color: #aaa;
+}
+
+.selected_option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: firaGo;
+  font-size: 14px;
+  font-weight: 350;
+}
+
+
+
+.option_avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown_arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.dropdown_arrow.open {
+  transform: rotate(180deg);
+}
+
+.custom_select_options {
+  position: absolute;
+  max-width: 384px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin-top: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: firaGo;
+  font-size: 14px;
+  font-weight: 350;
+}
+
+.custom_select_option {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--select-input-color);
+  gap: 8px;
+}
+
+.custom_select_option:hover {
+  background-color: #f5f5f5;
+}
+
+.custom_select_option.selected {
+  background-color: #f0f0f0;
+  font-weight: 500;
+}
