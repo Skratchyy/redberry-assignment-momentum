@@ -10,7 +10,7 @@ export const taskApi = api.injectEndpoints({
 
     getTask: builder.query<Task, number>({
       query: (id) => `/tasks/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Tasks', id }],
+      providesTags: (_result, _error, id) => [{ type: 'Tasks', id }],
     }),
 
     createTask: builder.mutation<Task, CreateTaskRequest>({
@@ -28,7 +28,7 @@ export const taskApi = api.injectEndpoints({
         method: 'PUT',
         body: request,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Tasks', id }, 'Tasks'],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Tasks', id }, 'Tasks'],
     }),
   }),
   overrideExisting: false,

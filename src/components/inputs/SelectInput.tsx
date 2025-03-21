@@ -4,9 +4,16 @@ import './SelectInput.css'
 function SelectInput<TFieldValues extends FieldValues = FieldValues>({name, label, register, options, required, validationrules }: SelectInputProps<TFieldValues>) {
   return <fieldset className="select_input_field">
   <label className="select_input_label" htmlFor="name">{label}{required && "*"}</label>
+  {register && (
   <select className="select_input" {...register(name, validationrules)}>
-    {options?.map((option, id) => <option className="select_input_option" key={id} value={option.id}>{option.name}</option>)}
+    {options?.map((option, id) => (
+      <option className="select_input_option" key={id} value={option.id}>
+        {'avatar' in option && <img src={option.avatar} />}
+        {option.name}
+      </option>
+    ))}
   </select>
+)}
   </fieldset>
 }
 
