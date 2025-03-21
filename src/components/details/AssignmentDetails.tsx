@@ -1,9 +1,9 @@
-function AssignmentDetails() {
-  return <>
-    <h3>დავალების დეტალები</h3>
-    <div className="assignment_details">
+import DetailEmployee from "./detailcomponents/DetailEmployee";
 
-    </div>
+function AssignmentDetails() {
+
+  return <>
+
   </>
 }
 export default AssignmentDetails;

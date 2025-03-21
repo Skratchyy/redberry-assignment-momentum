@@ -1,0 +1,36 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../../assets/FiraGO-Regular.ttf');
+}
+
+.detail_employee {
+  display: flex;
+  align-items: center;
+}
+
+.detail_employee > img {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.detail_employee_dets {
+  margin-left: 10px;
+}
+
+.detail_employee_dets > span {
+  font-size: 11px;
+  color: #474747;
+  font-weight: 100;
+  font-family: firaGo;
+}
+
+.detail_employee_dets > p {
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0D0F10;
+  font-family: firaGo;
+  line-height: 150%;
+}

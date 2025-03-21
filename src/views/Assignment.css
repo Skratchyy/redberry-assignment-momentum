@@ -26,3 +26,78 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+.assignment_descriotion {
+  margin-bottom: 70px;
+}
+
+.assignment_description_tags {
+  display: flex;
+  width: 13%;
+  justify-content: space-between;
+}
+
+.assignment_descriotion > h1 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.assignment_descriotion > p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: firaGo;
+}
+
+.assignment_details_wrapper {
+  width: 68%;
+}
+.assignment_details_wrapper > h3 {
+  font-family: firaGo;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2A2A2A;
+}
+
+.assignment_details{
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.assigment_detail_left {
+  display: flex;
+  align-items: center;
+}
+
+.assigment_detail_right {
+  display: flex;
+  align-items: center;
+  width: 280px;
+}
+
+.assignment_main_section {
+  display: flex;
+}
+
+.mySelect {
+  max-width: 284px;
+  border: 1px solid var(--select-border-color);
+  border-radius: 6px;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: var(--select-input-color);
+  margin: 6px 0px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 98% !important;
+  background-position-y: 50% !important;
+  appearance: none !important;
+}
+
+.mySelect:focus {
+  outline: none;
+}

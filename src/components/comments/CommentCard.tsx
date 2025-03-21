@@ -27,8 +27,8 @@ function CommentCard(props: CommentCardProps) {
             )}
           </div>
           {sub_comments &&
-            sub_comments.map((subcmt) => (
-              <div className="comments_card_wrapper">
+            sub_comments.map((subcmt, idx) => (
+              <div key={idx} className="comments_card_wrapper">
                 <div className="comments_card_image">
                   <img src={subcmt.author_avatar} />
                 </div>

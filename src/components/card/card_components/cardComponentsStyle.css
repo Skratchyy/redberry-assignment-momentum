@@ -68,6 +68,7 @@
 }
 
 .department_tag {
+  max-width: 85px;
   font-family: firaGo;
   font-size: 12px;
   width: fit-content;
