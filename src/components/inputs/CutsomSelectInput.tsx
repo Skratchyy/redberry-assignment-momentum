@@ -1,31 +1,34 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 import { FieldValues, Controller } from "react-hook-form";
 import { SelectInputProps } from "../../types/form.types";
-import './CustomSelect.css';
-
+import "./CustomSelect.css";
+import plusLogo from "../../assets/plus.svg";
 function CustomSelectInput<TFieldValues extends FieldValues = FieldValues>({
   name,
   label,
   options,
   required,
   validationrules,
-  control
+  control,
 }: SelectInputProps<TFieldValues>) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<any>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
-
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   useEffect(() => {
     if (options && options.length > 0 && !selectedOption) {
       setSelectedOption(options[0]);
@@ -42,7 +45,10 @@ function CustomSelectInput<TFieldValues extends FieldValues = FieldValues>({
 
   return (
     <fieldset className="select_input_field">
-      <label className="select_input_label" htmlFor={name}>{label}{required && "*"}</label>
+      <label className="select_input_label" htmlFor={name}>
+        {label}
+        {required && "*"}
+      </label>
 
       <Controller
         name={name}
@@ -50,14 +56,23 @@ function CustomSelectInput<TFieldValues extends FieldValues = FieldValues>({
         rules={validationrules}
         render={({ field: { onChange } }) => (
           <div className="custom_select_container" ref={dropdownRef}>
-            <div
-              className="custom_select_trigger"
-              onClick={toggleDropdown}
-            >
+            <div className="custom_select_trigger" onClick={toggleDropdown}>
               {selectedOption ? (
                 <div className="selected_option">
-                  {'avatar' in selectedOption && <img src={selectedOption.avatar} alt="" className="option_avatar" />}
-                  {'icon' in selectedOption && <img src={selectedOption.icon} alt="" className="option_avatar" />}
+                  {"avatar" in selectedOption && (
+                    <img
+                      src={selectedOption.avatar}
+                      alt=""
+                      className="option_avatar"
+                    />
+                  )}
+                  {"icon" in selectedOption && (
+                    <img
+                      src={selectedOption.icon}
+                      alt=""
+                      className="option_avatar"
+                    />
+                  )}
                   <span>{selectedOption.name}</span>
                 </div>
               ) : (
@@ -66,14 +81,35 @@ function CustomSelectInput<TFieldValues extends FieldValues = FieldValues>({
             </div>
             {isOpen && (
               <div className="custom_select_options">
+                {name === "employee" && (
+                  <div
+                    className="custom_select_option_new_user"
+                    onClick={() =>
+                      window.dispatchEvent(new Event("open-employee-modal"))
+                    }
+                  >
+                    <img src={plusLogo} alt="+" />
+                    <span>ახალი თანამშრომლის დამატება</span>
+                  </div>
+                )}
                 {options?.map((option, id) => (
                   <div
-                    className={`custom_select_option ${selectedOption?.id === option.id ? 'selected' : ''}`}
+                    className={`custom_select_option ${
+                      selectedOption?.id === option.id ? "selected" : ""
+                    }`}
                     key={id}
                     onClick={() => handleOptionSelect(option, onChange)}
                   >
-                    {'avatar' in option && <img src={option.avatar} alt="" className="option_avatar" />}
-                    {'icon' in option && <img src={option.icon} alt="" className="option_avatar" />}
+                    {"avatar" in option && (
+                      <img
+                        src={option.avatar}
+                        alt=""
+                        className="option_avatar"
+                      />
+                    )}
+                    {"icon" in option && (
+                      <img src={option.icon} alt="" className="option_avatar" />
+                    )}
                     <span>{option.name}</span>
                   </div>
                 ))}

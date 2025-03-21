@@ -1,0 +1,28 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../assets/FiraGO-Regular.ttf');
+}
+
+.comments_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.comments_header > h4 {
+  font-family: firaGo;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.comments_header > span {
+  padding: 2px 10px;
+  border-radius: 30px;
+  background-color: #8338EC;
+  color: #fff;
+  text-align: center;
+  margin-left: 10px;
+  font-family: firaGo;
+  font-size: 14px;
+  font-weight: 500;
+}

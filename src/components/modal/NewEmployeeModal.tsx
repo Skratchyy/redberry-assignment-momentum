@@ -89,15 +89,17 @@ function NewUserModal({ ref }: ModalProps) {
                 register={register}
                 name="name"
                 validationrules={nameValidation}
+                required
               />
               <TextInput
                 label="გვარი"
                 register={register}
                 name="surname"
                 validationrules={nameValidation}
+                required
               />
             </fieldset>
-            <ImageUpload label="ავატარი" name="avatar" register={register} />
+            <ImageUpload label="ავატარი" name="avatar" register={register} required/>
 
             <SelectInput
               name="department_id"
@@ -105,19 +107,19 @@ function NewUserModal({ ref }: ModalProps) {
               register={register}
               options={data}
               validationrules={selectValidation}
+              required
             />
-
             <div className="new_user_modal_actions">
               <PrimaryButton
                 type="submit"
-                title="დამატება"
+                title="დაამატება"
                 icon={false}
                 disabled={!isValid || isCreating}
               />
               <SecondaryButton
                 onClick={handleCloseModal}
                 type="button"
-                title="დახურბა"
+                title="გაუქმება"
               />
             </div>
           </form>

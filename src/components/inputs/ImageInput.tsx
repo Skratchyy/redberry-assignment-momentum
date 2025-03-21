@@ -1,7 +1,7 @@
 import { useState } from "react";
-import imageLogo from '../../assets/image.png';
-import trashLogo from '../../assets/trash.svg';
-import './ImageInput.css';
+import imageLogo from "../../assets/image.png";
+import trashLogo from "../../assets/trash.svg";
+import "./ImageInput.css";
 import { ImageInputProps } from "../../types/form.types";
 import { FieldValues } from "react-hook-form";
 
@@ -12,7 +12,12 @@ function ImageInput<TFieldValues extends FieldValues = FieldValues>({
   register,
 }: ImageInputProps<TFieldValues>) {
   const [preview, setPreview] = useState<string | null>(null);
-  const { onChange, ref, ...rest } = register(name);
+  const { onChange, ref, ...rest } = register(name, {
+    required: "ფოტო აუცილებელია",
+    validate: {
+      lessThan10MB: (files) => files[0]?.size < 5000000 || "მაქსიმუმ 500kb",
+    },
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e);
@@ -28,7 +33,9 @@ function ImageInput<TFieldValues extends FieldValues = FieldValues>({
 
   const handleDeleteImage = () => {
     setPreview(null);
-    const fileInput = document.querySelector(`input[name="${name}"]`) as HTMLInputElement;
+    const fileInput = document.querySelector(
+      `input[name="${name}"]`
+    ) as HTMLInputElement;
     if (fileInput) {
       fileInput.value = "";
     }
@@ -36,7 +43,10 @@ function ImageInput<TFieldValues extends FieldValues = FieldValues>({
 
   return (
     <fieldset className="input_image_field">
-      <label htmlFor={name.toString()} className="input_image_label">{label}{required && '*'}</label>
+      <label htmlFor={name.toString()} className="input_image_label">
+        {label}
+        {required && "*"}
+      </label>
       <div className="image_upload_container">
         {!preview ? (
           <label htmlFor={name.toString()} className="image_upload_placeholder">
@@ -68,7 +78,7 @@ function ImageInput<TFieldValues extends FieldValues = FieldValues>({
         )}
       </div>
     </fieldset>
-  )
+  );
 }
 
 export default ImageInput;

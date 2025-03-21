@@ -14,7 +14,7 @@ function TextInput<TFieldValues extends FieldValues = FieldValues>({label, name,
     <fieldset className="text_input_field">
       <label className="text_input_label" htmlFor={name}>{label}{props.required && '*'}</label>
       {isTextarea ?
-      <textarea cols={45}  rows={11} id={name} {...props} {...register(name, validationrules)} className="text_input" ></textarea> :
+      <textarea cols={45}  rows={11} id={name} {...register(name, validationrules)} className="text_input" ></textarea> :
       <input id={name} {...props} {...register(name, validationrules)} className="text_input" />
       }
       {props.errormessages && props.errormessages.map((msg: string) => <span key={msg} className={hasError ? "fail" : !isDirty ? '' : 'success'}><FontAwesomeIcon icon={faCheck}/>{msg}</span>)}

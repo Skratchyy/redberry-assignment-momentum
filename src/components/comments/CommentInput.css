@@ -1,0 +1,73 @@
+@font-face {
+  font-family: firaGo;
+  src: url('../../assets/FiraGO-Regular.ttf');
+}
+
+.comment_input {
+  width: 631px;
+  height: 135px;
+  resize: none;
+  border-color: #ADB5BD;
+  border-radius: 10px;
+  padding: 18px 20px 15px 20px
+}
+
+.comment_input:focus {
+  outline: none;
+}
+
+.comment_input_form{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.comment_input_form > button {
+  width: 150px;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+
+.comments_card_wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 30px;
+}
+
+.comments_card_image {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments_card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comments_card_details > p{
+  font-family: firaGo;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #212529;
+}
+
+.comments_card_details > span {
+  font-family: firaGo;
+  font-weight: 350;
+  font-size: 16px;
+  margin-top: 5px;
+  color: #021526;
+}
+
+
+.comments_card_details > div {
+  margin-top: 10px;
+}

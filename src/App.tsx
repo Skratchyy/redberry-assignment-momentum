@@ -1,32 +1,32 @@
-import Header from "./components/header/Header"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import Home from "./views/Home"
-import NewAssignment from "./views/NewAssignment"
-
+import Header from "./components/header/Header";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./views/Home";
+import NewAssignment from "./views/NewAssignment";
+import Assignment from "./views/Assignment";
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Header />,
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
-        path: '/new-assignment',
-        element: <NewAssignment />
+        path: "/new-assignment",
+        element: <NewAssignment />,
       },
       {
-        path: '/assignent/assignment-id',
-        element: 0
-      }
-    ]
-  }
-])
+        path: "/assignment/:id",
+        element: <Assignment />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return <RouterProvider router={routes} />
+  return <RouterProvider router={routes} />;
 }
 
-export default App
+export default App;
