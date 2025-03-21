@@ -16,19 +16,16 @@ const routes = createBrowserRouter([
       {
         path: "new-assignment",
         element: <NewAssignment />,
-        children: [
-          {
-            path: ":id",
-            element: <Assignment />,
-          }
-        ]
+      },
+      {
+        path: "assignment/:id",
+        element: <Assignment />,
       },
     ],
   },
-],  {
+], {
   basename: "/redberry-assignment-momentum"
 });
-
 function App() {
   return <RouterProvider router={routes} />;
 }
