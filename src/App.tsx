@@ -6,7 +6,7 @@ import Assignment from "./views/Assignment";
 
 const routes = createBrowserRouter([
   {
-    path: "/redberry-assignment-momentum/",
+    path: "/redberry-assignment-momentum",
     element: <Header />,
     children: [
       {
